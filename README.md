@@ -71,8 +71,8 @@ The key is loaded inside the script from `PRIVATE_KEY`; it is not placed in the 
 
 ## Mainnet buy/sell smoke test
 
-The deployed router is `0xf05ce37534a00C6815EE062FF6A10603C49c28A9`, and the reference B20 is
-`0xB200000000000000000000defA12971e32B3BB07`. Buy and sell are intentionally separate so each
+The deployed router is `0xF5EA55A69307CF2cF598cCB0eA947ffdC52f985E`, and the reference B20 is
+`0xB20000000000000000000010238055932234F173`. Buy and sell are intentionally separate so each
 sell uses the actual post-buy B20 balance after the buy has been mined.
 
 Available scripts:
@@ -96,7 +96,7 @@ actual B20 balance:
 
 ```bash
 export SMOKE_SELL_B20_IN="$(base-cast call \
-  0xB200000000000000000000defA12971e32B3BB07 \
+  0xB20000000000000000000010238055932234F173 \
   'balanceOf(address)(uint256)' \
   "$(base-cast wallet address --private-key "$PRIVATE_KEY")" \
   --rpc-url "$BASE_RPC_URL" | awk '{print $1}')"
@@ -137,9 +137,9 @@ forge verify-contract \
   --verifier etherscan \
   --etherscan-api-key "$ETHERSCAN_API_KEY" \
   --constructor-args "$(cast abi-encode 'constructor(address,address,address,address,address,address,address,address,address)' \
-    0x38472ca56a93caa68459fd11fdd2eeb130d06b29 \
+    0x7e22764f1A1CBB8B60A5Ca1D3bAed720A48AA3D2 \
     0x498581fF718922c3f8e6A244956aF099B2652b2b \
-    0xC5a862dD09Df3585e0A5d3BC32AC4Fe7efE0A0cc \
+    0x10F775c7F82e57577b47E6401DE31DFC9BADe0cC \
     0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf \
     0x000000000022D473030F116dDEE9F6B43aC78BA3 \
     0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43 \
@@ -153,14 +153,14 @@ forge verify-contract \
 
 | Component | Base mainnet address | Verification used |
 |---|---|---|
-| LiqpadFactory | `0x38472ca56a93caa68459fd11fdd2eeb130d06b29` | verified source + live getters |
-| FeeRouter | `0x08a8cafefd4816451a18097372bb85153085270f` | verified source |
-| LockedPositionVault | `0x4ac4efaeda765e6350817caaf4000138b730ae31` | verified source |
-| LiqpadLaunchHook | `0xC5a862dD09Df3585e0A5d3BC32AC4Fe7efE0A0cc` | verified source + registered live pool |
+| LiqpadFactory | `0x7e22764f1A1CBB8B60A5Ca1D3bAed720A48AA3D2` | verified source + live getters |
+| FeeRouter | `0x1A1D815DbEADCc8cE783eD001f9733280F3E2e5e` | verified source |
+| LockedPositionVault | `0xAF8082B81Df88977B254342996cfe518F16477D6` | verified source |
+| LiqpadLaunchHook | `0x10F775c7F82e57577b47E6401DE31DFC9BADe0cC` | verified source + registered live pool |
 | PoolManager | `0x498581fF718922c3f8e6A244956aF099B2652b2b` | factory getter + live calls |
 | Permit2 | `0x000000000022D473030F116dDEE9F6B43aC78BA3` | supplied canonical address; unused by v1 |
 | VVV | `0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf` | factory/hook immutable getter |
-| Reference B20 | `0xb200000000000000000000defa12971e32b3bb07` | launch tx + factory mapping + hook pool record |
+| Reference B20 | `0xB20000000000000000000010238055932234F173` | launch tx + factory mapping + hook pool record |
 | Aerodrome Router | `0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43` | official deployment source + live quote calls |
 | Aerodrome PoolFactory | `0x420DD381b31aEf6683db6B902084cB0FFECe40Da` | official deployment source + router getter |
 | WETH | `0x4200000000000000000000000000000000000006` | Aerodrome router getter |

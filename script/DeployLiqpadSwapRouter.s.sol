@@ -20,9 +20,9 @@ interface ILiqpadFactoryCheck {
 }
 
 contract DeployLiqpadSwapRouter is Script {
-    address constant FACTORY = 0x38472Ca56a93CAa68459fD11FDd2EEb130D06b29;
+    address constant FACTORY = 0x7e22764f1A1CBB8B60A5Ca1D3bAed720A48AA3D2;
     address constant POOL_MANAGER = 0x498581fF718922c3f8e6A244956aF099B2652b2b;
-    address constant HOOK = 0xC5a862dD09Df3585e0A5d3BC32AC4Fe7efE0A0cc;
+    address constant HOOK = 0x10F775c7F82e57577b47E6401DE31DFC9BADe0cC;
     address constant VVV = 0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf;
     address constant PERMIT2 = 0x000000000022D473030F116dDEE9F6B43aC78BA3;
     address constant AERO_ROUTER = 0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43;
